@@ -1,0 +1,5 @@
+{
+  "browser" : "Chrome",
+  "applitools_api_key": "ENTER YOUR API KEY",
+  "run_visual_test": true
+}

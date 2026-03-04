@@ -1,11 +1,24 @@
 
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from applitools.selenium import MatchLevel
 
 class BasePage:
-    def __init__(self, browser, timeout=10):
+    def __init__(self, browser, eyes = None, timeout=10):
         self.browser = browser
+        self.eyes = eyes
         self.wait = WebDriverWait(browser, timeout)
+
+    def visual_check(self, tag):
+        """Captures a visual snapshot if Eyes is initialized
+        This is the core visual checkpoint method. check_window(tag) tells Applitools to take
+        a full-page screenshot at this moment and label it with tag (e.g., "Homepage") on the dashboard.
+        MatchLevel.LAYOUT checks that the structure and layout of the page is correct while ignoring
+        dynamic content like changing text, images, or video frames.
+        """
+        if self.eyes:
+            self.eyes.match_level = MatchLevel.LAYOUT
+            self.eyes.check_window(tag)
 
     # ---------- FINDERS ----------
 

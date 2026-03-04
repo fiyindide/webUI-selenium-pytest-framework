@@ -1,3 +1,5 @@
 {
-  "browser" : "Chrome"
+  "browser" : "Chrome",
+  "applitools_api_key": "4ntyo33104hvSjdLOvEjDXWY1cYvbC1100RaK100vfcHRyXvA110",
+  "run_visual_test": true
 }
